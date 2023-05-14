@@ -1,0 +1,35 @@
+curl --header "Content-Type: application/json" --request DELETE http://localhost:8080/invoice/delete/20
+
+curl --output - http://localhost:8080/invoice/getValue/Invoice::20
+
+curl --header "Content-Type: application/json" --request POST --data @body.json http://localhost:8080/invoice/saveInv
+
+curl --header "Content-Type: application/json" --request PUT --data @body.json http://localhost:8080/invoice/modify/40
+
+Update permission for .pem file
+=> right click on file -> properties option -> security tab -> click Advanced -> Disable Inheritance (remove all permission entries) -> Add -> Select Principle -> in dialog check click Advance opetion -> in anohter dialog click Find Now -> select your user name -> Okay press -> Give Full Control -> Apply & ok
+(https://www.youtube.com/watch?v=6phF7bxY2Eo&ab_channel=LbisTech)
+
+ssh -i deepakPem.pem ubuntu@ec2-44-204-191-125.compute-1.amazonaws.com
+
+// on EC2 to install Redis :
+sudo apt-get update
+sudo apt-get install redis-server
+sudo apt install net-tools
+netstat -tuln
+
+
+// Update config in Redis :
+> sudo vi /etc/redis/redis.conf and update following :
+bind 0.0.0.0 ::1  ---- line 56
+supervised systemd  ---- line 236
+
+> sudo systemctl restart redis.service / sudo service redis-server restart
+
+
+// EC2 instance types to be used
+Size: "t2.micro",
+      "t2.medium",
+      "t2.xlarge",
+      "m4.large",
+      "m4.xlarge
